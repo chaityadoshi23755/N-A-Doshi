@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>N A Doshi & Company</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- AOS Animation Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <!-- Font Awesome -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    .header {
+      background-color: #002b5c;
+      color: white;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 5px 0;
+      height: 60px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .header img {
+      height: 30px;
+      margin: 0 10px;
+      filter: brightness(0) invert(1);
+    }
+
+    .navbar {
+      background-color: #002b5c;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      top: 60px;
+      width: 100%;
+      transform: translateY(0);
+      transition: transform 0.3s ease-in-out;
+      z-index: 999;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar:not(.show) {
+      transform: translateY(-100%);
+    }
+
+    .navbar a {
+      color: white;
+      padding: 12px 18px;
+      text-decoration: none;
+      display: block;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+      background-color: #0077b6;
+    }
+
+    .hero {
+      background-image: linear-gradient(to right, rgba(0, 43, 92, 0.8), rgba(0, 43, 92, 0.8)), url('hero-bg.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 20px 100px;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      font-weight: 300;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 40px auto 20px auto;
+      padding: 40px 30px;
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+    }
+
+    .section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    h2 {
+      color: #002b5c;
+      border-bottom: 3px solid #002b5c;
+      padding-bottom: 5px;
+    }
+
+    h3 {
+      color: #0077b6;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      background: #e3f2fd;
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 6px;
+    }
+
+    ul li i {
+      margin-right: 8px;
+    }
+
+    .footer {
+      background-color: #002b5c;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+    }
+
+    .cta-button {
+      background-color: #0077b6;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+      display: inline-block;
+      margin: 20px 0;
+    }
+
+    .cta-button:hover {
+      background-color: #005f8c;
+    }
+
+    .expert-profile {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+
+    .expert-profile img {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    iframe {
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        width: 95%;
+        padding: 20px;
+      }
+
+      .navbar {
+        flex-direction: column;
+        top: 60px;
+      }
+
+      .navbar a {
+        padding: 14px;
+        font-size: 16px;
+      }
+
+      h2, h3 {
+        font-size: 20px;
+      }
+
+      .expert-profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .expert-profile img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+    }
+  .services-slideshow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.slideshow-container {
+  width: 100%;
+  max-width: 1060px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.slide {
+  display: none;
+  padding: 60px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  color: #002b5c;
+  background-color: #e3f2fd;
+}
+
+.active-slide {
+  display: block;
+}
+.hero-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.hero, .services-slideshow {
+  flex: 1;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .hero-wrapper {
+    flex-direction: column;
+  }
+  .hero, .services-slideshow {
+    flex: 1 1 100%;
+    padding: 40px 20px;
+  }
+}
+
+  </style>
+
+  <script>
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function () {
+      const navbar = document.querySelector(".navbar");
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop < 100 || scrollTop < lastScrollTop) {
+        navbar.classList.add("show");
+      } else {
+        navbar.classList.remove("show");
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    });
+
+    window.addEventListener("load", () => {
+      AOS.init();
+    });
+
+    window.addEventListener("load", () => {
+  AOS.init();
+
+  let slides = document.querySelectorAll('.slide');
+  let current = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active-slide', i === index);
+    });
+  }
+
+  function nextSlide() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }
+
+  showSlide(current);
+  setInterval(nextSlide, 3000);
+});
+
+  </script>
+</head>
+<body>
+  <!-- Header -->
+  <div class="header">
+  <img src="nadoshi2.png" alt="N A Doshi Logo" style="height:60px; object-fit:contain;" />
+</div>
+
+
+  <!-- Navbar -->
+  <div class="navbar show">
+    <a href="#about">About</a>
+    <a href="services.html">Services</a>
+    <a href="Experts.html">Experts</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+
+    <div class="container" style="margin-top: 120px;">
+  <!-- Hero + Slideshow Container -->
+<div class="hero-wrapper" data-aos="fade-up">
+  
+  
+  
+  <div class="services-slideshow">
+  <div class="slideshow-container">
+    <div class="slide active-slide">
+      <img src="Taxation & Compliance.png" alt="Taxation" style="width:960px; height:540px; object-fit:cover;" />
+    </div>
+    <div class="slide">
+      <img src="Auditing & Assurance.jpeg" alt="Auditing" style="width:960px; height:540px; object-fit:cover;" />
+    </div>
+    <div class="slide">
+      <img src="Financial Consulting & Advisory.jpg" alt="Consulting" style="width:960px; height:540px; object-fit:cover;" />
+    </div>
+    <div class="slide">
+      <img src="Additional Services.jpg" alt="Additional Services" style="width:960px; height:540px; object-fit:cover;" />
+    </div>
+  </div>
+</div>
+
+  </div>
+
+</div>
+
+
+
+  <div class="container">
+    <div class="section" id="about">
+      <h2>About Us</h2>
+        <p>N. A. Doshi & Co. is a Chartered Accountancy firm registered with the Institute of Chartered Accountants of India (ICAI) and based in Mumbai. Established in 2002, the firm is led by a team of experienced and energetic professionals who bring both expertise and innovation to the field of auditing, taxation, and consultancy.</p>
+        <p>We are committed to providing high-quality, technology-enabled, and cost-effective professional services to clients of all sizes across various sectors. With a robust in-house training ecosystem, we nurture technical excellence and ethical practice among our team members.</p>
+        <p>We take great pride in the confidence and trust our clients place in us and are constantly striving to raise the bar for professional excellence.</p>    </div>
+
+    <div class="section" id="philosophy">
+      <h2>Mission, Vision & Ethics</h2>
+      <h3>Our Mission</h3>
+      <p>To provide reliable professional services with integrity, excellence, and confidentiality, meeting every client’s unique need.</p>
+      <h3>Our Vision</h3>
+      <p>To establish a one-roof platform for clients for all their professional needs with the motive of recognition of the CA profession and to serve the nation.</p>
+      <h3>Our Beliefs</h3>
+      <p>We believe in moral values and that there are no shortcuts to quality professional services.</p>
+      <h3>Our Ethics</h3>
+      <p>We never compromise with the professional code of conduct and always uphold the dignity of the profession.</p>
+    </div>
+
+    </div>
+
+    <div class="container">
+
+    <div class="section" id="whyus">
+  <h2>Why Choose Us</h2>
+  <ul>
+    <li><strong>Two Decades of Experience:</strong> Delivering quality services since 2002.</li>
+    <li><strong>Young & Energetic Team:</strong> Dynamic professionals offering innovative solutions.</li>
+    <li><strong>Client-Centric Approach:</strong> Customised, practical, and ethical advice for each client.</li>
+    <li><strong>Cost-Effective:</strong> High-quality services backed by technology—at fair pricing.</li>
+    <li><strong>Data Security:</strong> Strong client confidentiality and secure data management.</li>
+  </ul>
+</div>
+  </div>
+
+    <div class="container">
+
+
+    <div class="section">
+      <h2>Client Testimonials</h2>
+      <ul>
+        <li><strong>Rahul Mehta:</strong> "Professional, prompt, and highly knowledgeable. N A Doshi & Co. has been our go-to firm for years."</li>
+        <li><strong>Pooja Shah:</strong> "Their GST team is amazing. Always get clear answers and strategic advice."</li>
+        <li><strong>Amit Bansal:</strong> "Trustworthy and thorough, highly recommend for audit and tax planning."</li>
+      </ul>
+    </div>
+</div>
+
+    <div class="container">
+    <div class="section contact" id="contact">
+      <h2>Contact Us</h2>
+      <p><strong>Direct Contacts:</strong></p>
+      <ul>
+        <li>📱 CA Nirmal Doshi: +91 9820298402</li>
+        <li>📱 CA Neha Doshi: +91 9619845846</li>
+        <li>📱 CA Maulik Sanghavi: +91 8291967603</li>
+      </ul>
+      <p><i class="fas fa-envelope"></i> <strong>Email:</strong> info@nadoshi.co.in (preferred), nadoshi.co@gmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> G Square, 610, Station Road, above Kalyan Jewellers, Saibaba Nagar, Pant Nagar, Ghatkopar East, Mumbai, Maharashtra 400077</p>
+      <p><a href="https://maps.app.goo.gl/Yk8qLytMFtChjpcf7" target="_blank"><i class="fas fa-map"></i> View on Google Maps</a></p>
+    </div>
+
+    <div class="section">
+      <h2>Business Hours</h2>
+      <ul>
+        <li><i class="far fa-calendar-alt"></i> Monday - Friday: 10:00 AM – 6:30 PM</li>
+        <li><i class="far fa-calendar-alt"></i> Saturday: 10:00 AM – 4:00 PM</li>
+        <li><i class="far fa-calendar-alt"></i> Sunday: Closed</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Contact Form</h2>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdyourformlink/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2025 N A Doshi & Company | All Rights Reserved
+  </div>
+  
+</body>
+</html>
