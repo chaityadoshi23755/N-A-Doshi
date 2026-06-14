@@ -88,6 +88,9 @@ strong {
   text-align: center;
   max-width: 700px;
   margin: 0 auto 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .section-header h2 {
@@ -98,6 +101,7 @@ strong {
   margin-bottom: 15px;
   font-weight: 700;
   letter-spacing: -0.02em;
+  text-align: center;
 }
 
 .section-header h2::after {
