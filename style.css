@@ -543,6 +543,15 @@ strong {
   background: var(--accent);
 }
 
+.info-card.text-center {
+  text-align: center;
+}
+
+.info-card.text-center h3::after {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 /* Modern List Layout */
 .feature-list {
   list-style: none;
